@@ -1,13 +1,5 @@
-if not is_linux
-  alsa_dep = dependency('', required: false)
-  subdir_done()
-endif
 
 libasound_dep = dependency('alsa', version: '>= 0.9.0', required: get_option('alsa'))
-if not libasound_dep.found()
-  alsa_dep = dependency('', required: false)
-  subdir_done()
-endif
 
 conf.set('ENABLE_ALSA', true)
 
